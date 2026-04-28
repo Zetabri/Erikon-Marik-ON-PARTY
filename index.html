@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>HitPlay App</title>
+</head>
+<body>
+
+  <h1>🎵 HitPlay Casero</h1>
+
+  <button onclick="nuevaPalabra()">Nueva palabra</button>
+  <p id="palabra">Pulsa el botón</p>
+
+  <script>
+    async function nuevaPalabra() {
+      try {
+        const res = await fetch("https://random-word-api.herokuapp.com/word?lang=es");
+        const data = await res.json();
+        document.getElementById("palabra").textContent = data[0];
+      } catch (error) {
+        document.getElementById("palabra").textContent = "Error al cargar palabra 😢";
+      }
+    }
+  </script>
+
+</body>
+</html>
