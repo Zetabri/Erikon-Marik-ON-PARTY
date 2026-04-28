@@ -1,0 +1,5 @@
+async function nuevaPalabra() {
+  const res = await fetch("https://random-word-api.herokuapp.com/word?lang=es");
+  const data = await res.json();
+  document.getElementById("palabra").textContent = data[0];
+}
